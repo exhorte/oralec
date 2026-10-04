@@ -183,10 +183,10 @@ export default function ProfessionnelsPage() {
                     <li key={item} className="flex gap-3 text-sm">
                       <MinusIcon
                         weight="bold"
-                        className={cn("mt-0.5 size-4 shrink-0", c.featured ? "text-white/45" : "text-subtil")}
+                        className={cn("mt-0.5 size-4 shrink-0", c.featured ? "text-white/60" : "text-subtil")}
                         aria-hidden
                       />
-                      <span className={c.featured ? "text-white/55" : "text-subtil"}>{item}</span>
+                      <span className={c.featured ? "text-white/70" : "text-subtil"}>{item}</span>
                     </li>
                   ))}
                 </ul>

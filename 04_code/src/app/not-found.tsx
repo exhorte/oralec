@@ -9,10 +9,8 @@ import { whatsappUrl } from "@/lib/whatsapp";
 
 export default function NotFound() {
   return (
-    <section className="relative overflow-hidden bg-muted">
-      <div className="pattern-dots fade-mask absolute inset-0 opacity-70" aria-hidden />
-
-      <Container className="relative">
+    <section className="bg-muted">
+      <Container>
         <div className="py-24 sm:py-32">
           <p className="tnum text-sm font-semibold tracking-[0.18em] text-primary uppercase">Erreur 404</p>
           <h1 className="mt-4 text-4xl sm:text-5xl">Cette page n&apos;existe pas.</h1>

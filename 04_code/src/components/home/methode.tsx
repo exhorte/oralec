@@ -25,7 +25,7 @@ export function Methode() {
             <li key={e.titre}>
               <Reveal delay={i * 70} className="h-full">
                 <Card className="h-full items-start gap-0 px-6 py-6 shadow-card">
-                  <span className="tnum flex size-14 items-center justify-center rounded-2xl bg-primary font-heading text-xl font-extrabold text-primary-foreground shadow-[0_12px_24px_-12px_rgb(0_25_105/0.7)]">
+                  <span className="tnum flex size-14 items-center justify-center rounded-2xl bg-primary font-heading text-xl font-extrabold text-primary-foreground shadow-[0_12px_24px_-12px_rgb(22_35_193/0.7)]">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <CardContent className="mt-5 px-0">

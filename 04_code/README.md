@@ -7,9 +7,9 @@ Plan produit et arbitrages : [`02_project_plan/PLAN_SITE_ORALEC.md`](../02_proje
 Suivi de la refonte : [`03_project_monitoring/ETAT_REFONTE_ORALEC.md`](../03_project_monitoring/ETAT_REFONTE_ORALEC.md)
 
 **Design** — refonte du 1er octobre 2026 : nom Oralec, charte de quatre
-couleurs (`#001969` marine, `#393f4b` ardoise, `#000000`, `#ffffff` dominant),
-composants shadcn/ui, icônes Phosphor, photos de techniciennes et techniciens
-noirs. Mise en page adaptée de la maquette « Voltéo »
+couleurs (`#1623c1` bleu du logo, `#393f4b` ardoise, `#000000`, `#ffffff`
+dominant), composants shadcn/ui, icônes Phosphor, photos de techniciennes et
+techniciens noirs. Logo officiel intégré le 4 octobre 2026 (`public/brand`). Mise en page adaptée de la maquette « Voltéo »
 (`05_screenshot/Site entreprise électricité.jpg`) ; fonds et ambiance
 inspirés d'[arktyk.fr](https://arktyk.fr/climatisation-confort-thermique/).
 
@@ -120,12 +120,21 @@ l'historique git (commit `586b074`, `04_code/feanor-web/src/content/services.ts`
 ## Système de design
 
 **Couleurs** — jetons shadcn/ui mappés sur la charte, dans
-[`src/app/globals.css`](src/app/globals.css). Le marine porte la marque (boutons,
-liens, icônes, bandeaux), l'ardoise le texte courant, le noir les titres, le blanc
-le fond. Les autres valeurs ne sont que des teintes de ces quatre couleurs, plus
-deux exceptions fonctionnelles : le vert WhatsApp (logo du canal uniquement) et
-le rouge d'erreur de formulaire. Contrastes vérifiés par calcul (marine sur blanc
-15,6:1, ardoise 10,6:1).
+[`src/app/globals.css`](src/app/globals.css). Le bleu du logo porte la marque
+(boutons, liens, icônes, bandeaux), l'ardoise le texte courant, le noir les
+titres, le blanc le fond. Les autres valeurs ne sont que des teintes de ces quatre
+couleurs, plus deux exceptions fonctionnelles : le vert WhatsApp (logo du canal
+uniquement) et le rouge d'erreur de formulaire. Contrastes vérifiés par calcul
+(bleu sur blanc 10,3:1, ardoise 10,6:1 ; texte blanc sur bleu jamais sous 65 %
+d'opacité). Fonds en aplats : pas de trame.
+
+**Logo** — fichiers officiels de `06_logos_icons`, copiés dans `public/brand`
+(logo bleu, logo blanc, symbole seul, icônes 192 et 512 px) et dans `src/app`
+(`favicon.ico`, `icon.svg`, `apple-icon.png`, `opengraph-image.png`, que Next.js
+déclare tout seul). Composant : `components/ui/logo.tsx`.
+
+**Largeur** — `components/ui/container.tsx` : gouttières de 16 à 64 px, plafond
+1 920 px. En-tête, corps et pied de page s'alignent sur les mêmes bords.
 
 **Composants** — shadcn/ui, style `radix-vega` (voir `components.json`) :
 `Card` pour toutes les cartes, `Button` (variantes ajoutées : `inverse`,

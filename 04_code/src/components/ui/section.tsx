@@ -1,12 +1,12 @@
 import { cn } from "@/lib/utils";
 import { Container } from "./container";
 
-type Ton = "blanc" | "doux" | "marine";
+type Ton = "blanc" | "doux" | "bleu";
 
 const fonds: Record<Ton, string> = {
   blanc: "bg-background",
   doux: "bg-muted",
-  marine: "bg-primary text-primary-foreground",
+  bleu: "bg-primary text-primary-foreground",
 };
 
 /**
@@ -37,7 +37,7 @@ export function Section({
   );
 }
 
-/** Surtitre de section — court, en marine, précédé d'un filet. */
+/** Surtitre de section — court, en bleu, précédé d'un filet. */
 export function Eyebrow({
   children,
   className,

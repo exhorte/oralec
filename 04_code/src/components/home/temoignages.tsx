@@ -43,7 +43,7 @@ export function Temoignages() {
                     <StarIcon key={i} weight={i < t.note ? "fill" : "regular"} className="size-4" aria-hidden />
                   ))}
                 </span>
-                <QuotesIcon weight="fill" className="size-7 text-marine-clair" aria-hidden />
+                <QuotesIcon weight="fill" className="size-7 text-bleu-clair" aria-hidden />
               </div>
               <blockquote className="mt-5 text-[0.95rem] leading-relaxed text-muted-foreground">
                 «&nbsp;{t.texte}&nbsp;»

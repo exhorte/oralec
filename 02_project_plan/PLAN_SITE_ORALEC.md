@@ -122,7 +122,7 @@ page locale) reste dans l'historique git — commit `586b074` — et revient par
 une simple entrée dans `src/content/services.ts`.
 
 Les couleurs par métier ont disparu avec la nouvelle charte : un seul accent,
-le marine, partout.
+le bleu du logo, partout.
 
 ---
 
@@ -208,34 +208,48 @@ Les pages services et les pages locales sont **générées depuis ce modèle** v
 > (`05_screenshot/Site entreprise électricité.jpg`), fonds et ambiance inspirés
 > d'arktyk.fr. La logique de fond ne change pas : un seul accent, contenu réel
 > plutôt qu'inventé.
+>
+> **Ajusté le 4 octobre 2026**, à la livraison du logo (`06_logos_icons`) : le
+> bleu du logo `#1623C1` remplace le marine `#001969` ; plus aucune trame de
+> fond (grille, points) ; mise en page élargie presque bord à bord.
 
 **Direction :** blanc dominant, structuré par des cartes à coins arrondis et
-ombre douce. Bandeaux marine pour les moments forts (atouts sous le hero,
+ombre douce. Bandeaux bleus pour les moments forts (atouts sous le hero,
 repères chiffrés, appels à l'action, formulaire de contact, pied de page).
+Fonds en aplats, sans trame.
+
+**Largeur :** contenu aligné sur des gouttières de 16 px (mobile) à 64 px
+(grand écran), plafonné à 1 920 px (`Container`). En-tête, corps et pied de
+page partagent les mêmes bords. Menu centré, l'écart entre ses entrées grandit
+avec l'écran.
+
+**Logo :** fichiers officiels dans `04_code/public/brand` (version bleue et
+blanche, symbole seul), favicon, icône Apple, manifeste et image de partage
+dans `04_code/src/app`. Les originaux restent dans `06_logos_icons`.
 
 ### Jetons (`src/app/globals.css`, au format shadcn/ui)
 
 ```
 Charte
-  marine    #001969   primary — boutons, liens, icônes, bandeaux
+  bleu      #1623C1   primary — boutons, liens, icônes, bandeaux (celui du logo)
   ardoise   #393F4B   muted-foreground — texte courant
   noir      #000000   foreground — titres
   blanc     #FFFFFF   background — dominant
 
 Teintes et ombres dérivées (rien d'autre)
-  fond doux #F4F6FA   sections alternées
-  marine clair #E9EDF7 / secondaire #EEF1F8   fonds d'icônes, survols
-  bordure   #E2E6EE · champ #CFD5E1
+  fond doux #F7F7FD   sections alternées (bleu à 3,5 % sur blanc)
+  bleu clair #E5E7F8 / secondaire #EFF0FB   fonds d'icônes, survols
+  bordure   #E3E5EF · champ #CDD0E0
   subtil    #5B616D   légendes (6,2:1 sur blanc)
-  marine profond #000C33   pied de page
 
 Exceptions fonctionnelles
   WhatsApp  #25D366   logo du canal uniquement — il se reconnaît à sa couleur
   erreur    #B42318   validation de formulaire
 ```
 
-Contrastes calculés : marine sur blanc 15,6:1, ardoise 10,6:1, blanc à 70 %
-sur marine 8,1:1.
+Contrastes calculés : bleu sur blanc 10,3:1, ardoise 10,6:1. Sur le bleu, le
+texte blanc ne descend pas sous 65 % d'opacité (5,1:1) — à 55 %, il tomberait à
+4,0:1, sous le seuil AA. Le pied de page, en bleu lui aussi, suit la même règle.
 
 ### Composants et icônes
 

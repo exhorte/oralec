@@ -8,7 +8,8 @@
    ORALEC — Jetons de design
 
    Charte imposée : quatre couleurs, le blanc dominant.
-     #001969  marine   — la marque : boutons, liens, icônes, bandeaux sombres
+     #1623c1  bleu     — la marque (celle du logo) : boutons, liens, icônes,
+                         bandeaux
      #393f4b  ardoise  — le texte courant
      #000000  noir     — les titres
      #ffffff  blanc    — le fond, partout où rien d'autre ne s'impose
@@ -19,15 +20,16 @@
    reconnaît à sa couleur), et un rouge d'erreur de formulaire.
 
    Contrastes calculés (WCAG) :
-     marine sur blanc 15,6:1 · ardoise sur blanc 10,6:1 · subtil sur blanc 6,2:1
-     blanc à 70 % sur marine 8,1:1
+     bleu sur blanc 10,3:1 · ardoise sur blanc 10,6:1 · subtil sur blanc 6,2:1
+     sur bleu : blanc à 70 % 5,7:1 · à 65 % 5,1:1 — rien en dessous de 65 %
+     pour du texte (55 % tomberait à 4,0:1, sous le seuil AA)
    ========================================================================== */
 
 :root {
   --radius: 0.625rem;
 
   /* La charte */
-  --oralec-marine: #001969;
+  --oralec-bleu: #1623c1;
   --oralec-ardoise: #393f4b;
   --oralec-noir: #000000;
   --oralec-blanc: #ffffff;
@@ -39,22 +41,22 @@
   --card-foreground: var(--oralec-noir);
   --popover: var(--oralec-blanc);
   --popover-foreground: var(--oralec-noir);
-  --primary: var(--oralec-marine);
+  --primary: var(--oralec-bleu);
   --primary-foreground: var(--oralec-blanc);
-  --secondary: #eef1f8;
-  --secondary-foreground: var(--oralec-marine);
-  --muted: #f4f6fa;
+  --secondary: #eff0fb;
+  --secondary-foreground: var(--oralec-bleu);
+  --muted: #f7f7fd;
   --muted-foreground: var(--oralec-ardoise);
-  --accent: #eef1f8;
-  --accent-foreground: var(--oralec-marine);
+  --accent: #eff0fb;
+  --accent-foreground: var(--oralec-bleu);
   --destructive: #b42318;
-  --border: #e2e6ee;
-  --input: #cfd5e1;
-  --ring: var(--oralec-marine);
+  --border: #e3e5ef;
+  --input: #cdd0e0;
+  --ring: var(--oralec-bleu);
 
-  /* Extensions Oralec — teintes et ombres de la charte */
-  --marine-profond: #000c33;
-  --marine-clair: #e9edf7;
+  /* Extensions Oralec — teintes de la charte : le bleu mêlé de blanc
+     (7 %, 11 %, 3,5 %). Le pied de page est dans le bleu de la marque. */
+  --bleu-clair: #e5e7f8;
   --subtil: #5b616d;
 
   /* Couleur fonctionnelle : logo WhatsApp uniquement */
@@ -84,9 +86,8 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --color-marine: var(--oralec-marine);
-  --color-marine-profond: var(--marine-profond);
-  --color-marine-clair: var(--marine-clair);
+  --color-bleu: var(--oralec-bleu);
+  --color-bleu-clair: var(--bleu-clair);
   --color-ardoise: var(--oralec-ardoise);
   --color-subtil: var(--subtil);
   --color-whatsapp: var(--whatsapp);
@@ -101,10 +102,10 @@
 }
 
 @theme {
-  /* Ombres teintées marine plutôt que grises : elles restent dans la charte */
-  --shadow-card: 0 1px 2px rgb(0 25 105 / 0.04), 0 10px 30px -16px rgb(0 25 105 / 0.18);
-  --shadow-float: 0 4px 12px -4px rgb(0 25 105 / 0.08), 0 24px 56px -24px rgb(0 25 105 / 0.38);
-  --shadow-band: 0 30px 60px -30px rgb(0 12 51 / 0.6);
+  /* Ombres teintées de bleu plutôt que grises : elles restent dans la charte */
+  --shadow-card: 0 1px 2px rgb(22 35 193 / 0.04), 0 10px 30px -16px rgb(22 35 193 / 0.18);
+  --shadow-float: 0 4px 12px -4px rgb(22 35 193 / 0.08), 0 24px 56px -24px rgb(22 35 193 / 0.38);
+  --shadow-band: 0 30px 60px -30px rgb(9 15 81 / 0.6);
 }
 
 @layer base {
@@ -142,7 +143,7 @@
   }
 
   /* Pas de couleur imposée aux titres : ils héritent, ce qui les laisse
-     blancs dans les bandeaux marine sans classe supplémentaire. */
+     blancs dans les bandeaux bleus sans classe supplémentaire. */
   h1,
   h2,
   h3,
@@ -159,12 +160,12 @@
   }
 
   ::selection {
-    background-color: var(--oralec-marine);
+    background-color: var(--oralec-bleu);
     color: var(--oralec-blanc);
   }
 
   :focus-visible {
-    outline: 2px solid var(--oralec-marine);
+    outline: 2px solid var(--oralec-bleu);
     outline-offset: 2px;
   }
 
@@ -175,42 +176,8 @@
   }
 }
 
-/* ==========================================================================
-   Motifs de fond — 100 % CSS, 0 Ko de média
-   Noms préfixés `pattern-` et non `bg-` : `cn()` (tailwind-merge) traiterait
-   un `bg-*` inconnu comme une couleur de fond et l'écraserait.
-   ========================================================================== */
-
-/* Trame technique, sur fond clair */
-@utility pattern-grid {
-  background-image:
-    linear-gradient(to right, rgb(0 25 105 / 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(0 25 105 / 0.06) 1px, transparent 1px);
-  background-size: 56px 56px;
-}
-
-/* Trame technique, sur fond marine */
-@utility pattern-grid-light {
-  background-image:
-    linear-gradient(to right, rgb(255 255 255 / 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(255 255 255 / 0.06) 1px, transparent 1px);
-  background-size: 56px 56px;
-}
-
-/* Trame de points, plus douce que la grille */
-@utility pattern-dots {
-  background-image: radial-gradient(rgb(0 25 105 / 0.14) 1px, transparent 1.4px);
-  background-size: 20px 20px;
-}
-
-/* Estompe un motif vers les bords */
-@utility fade-mask {
-  mask-image: radial-gradient(ellipse 75% 70% at 50% 40%, #000 30%, transparent 100%);
-}
-
-@utility fade-mask-right {
-  mask-image: linear-gradient(to right, #000 0%, transparent 85%);
-}
+/* Pas de trame de fond (grille, points) : retirées le 4 octobre 2026 à la
+   demande du dirigeant. Les fonds restent des aplats. */
 
 /* ==========================================================================
    Apparition au scroll — 100 % CSS, 0 Ko de JavaScript.
@@ -261,7 +228,7 @@
 
   /* Lien de contenu souligné, lisible */
   .prose-link {
-    color: var(--oralec-marine);
+    color: var(--oralec-bleu);
     font-weight: 500;
     text-decoration: underline;
     text-underline-offset: 3px;

@@ -1,5 +1,11 @@
 # État du lot 1 — Site vitrine Feanor
 
+> **Document historique, figé au 18 septembre 2026.** L'entreprise s'appelle
+> désormais **Oralec** et la plomberie a été retirée de l'offre. Le code est
+> maintenant dans `04_code` (et non plus `04_code/feanor-web`), le plan dans
+> `02_project_plan/PLAN_SITE_ORALEC.md`. État courant :
+> `ETAT_REFONTE_ORALEC.md`.
+
 Dernière mise à jour : 18 septembre 2026
 Code : `04_code/feanor-web` · Plan : `02_project_plan/PLAN_SITE_FEANOR.md`
 

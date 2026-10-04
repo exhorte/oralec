@@ -128,7 +128,7 @@ export function DiagnosticFlow() {
                   )}
                 >
                   {d.icon && (
-                    <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-linear-to-br from-white to-marine-clair text-primary ring-1 ring-inset ring-primary/10">
+                    <span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-linear-to-br from-white to-bleu-clair text-primary ring-1 ring-inset ring-primary/10">
                       <d.icon weight="duotone" className="size-6" aria-hidden />
                     </span>
                   )}

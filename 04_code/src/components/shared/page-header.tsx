@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 /**
  * En-tête des pages intérieures, en trois mises en page :
  *
- * — `simple`     : texte seul sur fond doux tramé ;
+ * — `simple`     : texte seul sur fond doux ;
  * — `vignette`   : texte à gauche, photo encadrée à droite ;
  * — `couverture` : photo pleine largeur, lumineuse, voilée de blanc côté
  *                  texte — le parti pris d'arktyk.fr, qui vend une ambiance
@@ -70,7 +70,6 @@ export function PageHeader({
   if (layout === "vignette" && photo) {
     return (
       <section className="relative overflow-hidden border-b border-border bg-linear-to-b from-white to-muted">
-        <div className="pattern-dots fade-mask absolute inset-0 opacity-60" aria-hidden />
         <Container className="relative">
           <div className="grid items-center gap-12 py-14 sm:py-16 lg:grid-cols-12 lg:gap-14 lg:py-20">
             <div className="lg:col-span-7">{texte}</div>
@@ -98,7 +97,6 @@ export function PageHeader({
 
   return (
     <section className="relative overflow-hidden border-b border-border bg-muted">
-      <div className="pattern-dots fade-mask absolute inset-0 opacity-70" aria-hidden />
       <Container className="relative">
         <div className="py-14 sm:py-20">{texte}</div>
       </Container>

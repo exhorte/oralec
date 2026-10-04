@@ -1,68 +1,66 @@
+import Image from "next/image";
+
 import { cn } from "@/lib/utils";
 import { site } from "@/content/site";
 
-/**
- * Marque Oralec.
- *
- * Le monogramme : un « O » — l'initiale — traversé d'un éclair, dans une
- * tuile marine. Le cercle évoque aussi le flux d'air d'un ventilateur, d'où
- * la double lecture électricité / climatisation sans multiplier les signes.
- * SVG inline : rien à télécharger, net à toutes les résolutions.
- */
-export function LogoMark({
-  className,
-  tone = "marine",
-}: {
-  className?: string;
-  /** `marine` sur fond clair, `blanc` sur fond marine. */
-  tone?: "marine" | "blanc";
-}) {
-  const fond = tone === "marine" ? "#001969" : "#ffffff";
-  const trait = tone === "marine" ? "#ffffff" : "#001969";
-  return (
-    <svg viewBox="0 0 40 40" aria-hidden className={cn("shrink-0", className)}>
-      <rect width="40" height="40" rx="10" fill={fond} />
-      <circle cx="20" cy="20" r="11.2" fill="none" stroke={trait} strokeWidth="2.6" />
-      <path
-        d="M21.3 13.2 15.6 21.1h3.9l-.8 5.7 5.7-7.9h-3.9l.8-5.7Z"
-        fill={trait}
-      />
-    </svg>
-  );
-}
+/* Rapport largeur / hauteur des fichiers officiels (viewBox des SVG). */
+const RATIO_LOGO = 35374642 / 9130000;
 
+/**
+ * Marque Oralec — les fichiers officiels de `06_logos_icons`, copiés dans
+ * `public/brand` : le symbole (deux arcs qui forment un « O ») et le nom.
+ *
+ * Servis en `<img>` plutôt qu'en SVG inline : chaque fichier déclare un
+ * masque `id="m"`, et deux logos inline sur une même page (en-tête et pied)
+ * se disputeraient cet identifiant.
+ *
+ * La hauteur se règle par `className` (`h-8`, `h-9`…), la largeur suit.
+ */
 export function Logo({
   className,
   withDescriptor = false,
-  tone = "marine",
+  descriptorClassName,
+  tone = "bleu",
+  prioritaire = false,
 }: {
   className?: string;
+  /** Ajoute « Électricité & Climatisation » à droite, après un filet. */
   withDescriptor?: boolean;
-  tone?: "marine" | "blanc";
+  /** Pour n'afficher le descripteur qu'à partir d'une largeur d'écran. */
+  descriptorClassName?: string;
+  /** `bleu` sur fond clair, `blanc` sur fond bleu. */
+  tone?: "bleu" | "blanc";
+  /** Logo de l'en-tête, visible dès le chargement. */
+  prioritaire?: boolean;
 }) {
   return (
-    <span className={cn("inline-flex items-center gap-2.5", className)}>
-      <LogoMark tone={tone} className="size-9" />
-      <span className="flex flex-col leading-none">
+    <span className="inline-flex items-center gap-3.5">
+      <Image
+        src={tone === "bleu" ? "/brand/oralec-logo.svg" : "/brand/oralec-logo-blanc.svg"}
+        alt={site.name}
+        width={Math.round(36 * RATIO_LOGO)}
+        height={36}
+        // max-w-none : sans lui, le `max-width: 100%` de Tailwind laisse un
+        // conteneur flex comprimer le logo
+        className={cn("h-9 w-auto max-w-none shrink-0", className)}
+        {...(prioritaire ? { loading: "eager" as const, fetchPriority: "high" as const } : {})}
+      />
+      {withDescriptor && (
         <span
           className={cn(
-            "font-heading text-[1.4rem] font-extrabold tracking-tight",
-            tone === "marine" ? "text-foreground" : "text-white",
+            "border-l pl-3.5 text-[0.62rem] leading-[1.35] font-semibold tracking-[0.16em] uppercase",
+            tone === "bleu" ? "border-border text-subtil" : "border-white/20 text-white/70",
+            descriptorClassName,
           )}
         >
-          {site.name}
+          {site.descriptor.split(" & ").map((mot, i) => (
+            <span key={mot} className="block">
+              {i > 0 && "& "}
+              {mot}
+            </span>
+          ))}
         </span>
-        {withDescriptor && (
-          <span
-            className={cn(
-              "mt-1 text-[0.58rem] font-semibold uppercase tracking-[0.2em]",
-              tone === "marine" ? "text-subtil" : "text-white/60",
-            )}
-          >
-            {site.descriptor}
-          </span>
-        )}
-      </span>
+      )}
     </span>
   );
 }

@@ -23,13 +23,13 @@ const demandes = [
   "Autre demande",
 ];
 
-/* Champs sur fond marine : l'aplat est éclairci plutôt que d'ajouter une
+/* Champs sur fond bleu : l'aplat est éclairci plutôt que d'ajouter une
    couleur — la carte reste dans la charte. */
 const champ =
-  "h-11 border-white/15 bg-white/[0.07] text-white placeholder:text-white/45 focus-visible:border-white/50 focus-visible:ring-white/20";
+  "h-11 border-white/15 bg-white/[0.07] text-white placeholder:text-white/65 focus-visible:border-white/50 focus-visible:ring-white/20";
 
 /**
- * Formulaire « Envoyez-nous un message » — la carte marine de la maquette.
+ * Formulaire « Envoyez-nous un message » — la carte bleue de la maquette.
  *
  * Rien n'est envoyé à un serveur : le formulaire compose le message que le
  * visiteur envoie lui-même, par WhatsApp (action principale) ou par e-mail.
@@ -107,7 +107,7 @@ export function ContactForm() {
         />
         <p
           id="contact-telephone-aide"
-          className={cn("text-xs", tente && !telOk ? "font-semibold text-white" : "text-white/50")}
+          className={cn("text-xs", tente && !telOk ? "font-semibold text-white" : "text-white/70")}
         >
           {tente && !telOk
             ? "Numéro sénégalais attendu : 9 chiffres commençant par 7."
@@ -135,7 +135,7 @@ export function ContactForm() {
 
       <div className="space-y-2">
         <Label htmlFor="contact-message" className="text-white/85">
-          Message <span className="font-normal text-white/50">(facultatif)</span>
+          Message <span className="font-normal text-white/70">(facultatif)</span>
         </Label>
         <Textarea
           id="contact-message"

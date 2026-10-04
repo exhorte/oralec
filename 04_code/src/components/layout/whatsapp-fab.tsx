@@ -7,7 +7,7 @@ import { whatsappUrl } from "@/lib/whatsapp";
  * WhatsApp sur le même écran, c'est un bouton de trop.
  *
  * Seule entorse assumée à la charte : le vert WhatsApp. Le canal se
- * reconnaît à sa couleur ; repeint en marine, il ne se reconnaîtrait plus.
+ * reconnaît à sa couleur ; repeint en bleu, il ne se reconnaîtrait plus.
  */
 export function WhatsAppFab() {
   return (

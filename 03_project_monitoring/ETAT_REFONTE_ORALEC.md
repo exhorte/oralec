@@ -1,6 +1,6 @@
 # État de la refonte — Feanor devient Oralec
 
-Date : 1er octobre 2026
+Date : 1er octobre 2026 · dernière mise à jour : 4 octobre 2026
 Code : `04_code` · Plan : `02_project_plan/PLAN_SITE_ORALEC.md`
 Historique du lot 1 (sous le nom Feanor) : `ETAT_LOT_1.md`
 
@@ -21,7 +21,7 @@ deux images (voir plus bas).
 |---|---|
 | Nom | Feanor → **Oralec** partout : textes, métadonnées, JSON-LD, messages WhatsApp pré-remplis, mentions légales. Offres renommées « Oralec Business » et « Oralec Care ». |
 | Offre | **Plomberie retirée** : page métier, page locale `/plomberie-dakar`, FAQ, secteurs, gestes d'urgence, parcours « J'ai un problème ». Restent climatisation & froid, électricité, maintenance & dépannage. Les anciennes URL de plomberie renvoient une 404. |
-| Charte | Quatre couleurs : `#001969` marine, `#393f4b` ardoise, `#000000`, `#ffffff` dominant. Teintes dérivées uniquement ; exceptions : vert WhatsApp (logo du canal) et rouge d'erreur de formulaire. |
+| Charte | Quatre couleurs : `#1623c1` bleu (celui du logo, depuis le 4 octobre — `#001969` marine auparavant), `#393f4b` ardoise, `#000000`, `#ffffff` dominant. Teintes dérivées uniquement ; exceptions : vert WhatsApp (logo du canal) et rouge d'erreur de formulaire. |
 | Composants | **shadcn/ui** installé (style radix-vega) : cartes, boutons, badge, champs, menu mobile en panneau latéral, avatar. |
 | Icônes | **Phosphor duotone**, rendues côté serveur, dans des tuiles en relief ; icône climatiseur dessinée sur mesure. |
 | Typographie | Plus Jakarta Sans (titres) + Inter (texte), auto-hébergées ; espaces insécables de la typographie française. |
@@ -29,6 +29,17 @@ deux images (voir plus bas).
 | Pages intérieures | En-têtes avec photo (en vignette, ou en couverture pleine largeur façon arktyk pour Climatisation et Particuliers), cartes shadcn partout. |
 | Images | 12 photos libres de droits (Unsplash, Pexels) de techniciennes et techniciens noirs ou d'équipements, + 2 images de `05_screenshot`. Photothèque centralisée dans `src/content/images.ts`. |
 | Contenu Sénégal | Norme **NS 01-001**, conformité **COSSUEL** avant raccordement **Senelec**, air salin, poussière, coupures, Wave / Orange Money, quartiers de Dakar. |
+
+---
+
+## Mise à jour du 4 octobre 2026 — logo, bleu, largeur
+
+| Domaine | Détail |
+|---|---|
+| Logo | Fichiers officiels (`06_logos_icons`) intégrés : en-tête, menu mobile, pied de page (version blanche), favicon, icône d'écran d'accueil (Apple et Android, via `manifest.webmanifest`), image de partage 1200 × 630 sur **toutes** les pages, logo dans la fiche JSON-LD. L'ancien monogramme dessiné à la main est supprimé. |
+| Couleur | `#1623c1` remplace `#001969` partout, pied de page compris ; fonds doux, bordures et ombres recalculés sur ce bleu. Textes en blanc translucide relevés à 65–75 % (formulaire, carte Business, pied de page) pour rester lisibles sur ce bleu plus clair. |
+| Fonds | Trames de grille et de points supprimées (8 emplacements). |
+| Largeur | Contenu presque bord à bord : gouttières de 16 à 64 px, plafond 1 920 px, au lieu d'un bloc centré de 1 280 px. Menu centré, entrées plus espacées. Entre 1 024 et 1 280 px, le numéro de téléphone de l'en-tête se réduit à sa pastille pour laisser la place au menu. |
 
 ---
 
@@ -67,11 +78,21 @@ intégrés après achat de la licence et récupération de la version HD.
 
 ## Décisions ouvertes
 
-- **Écriture du nom** : affiché « Oralec » (capitale initiale). Si la marque
-  doit s'écrire en minuscules (« oralec ») ou en capitales, c'est une valeur
-  dans `src/content/site.ts`.
+- **Écriture du nom** : tranchée par le logo — « Oralec », capitale initiale.
 - **Froid commercial** (chambres froides, vitrines) : conservé, rattaché à la
   climatisation. À retirer aussi s'il ne fait plus partie de l'offre.
-- **Dépôt Git** : le dépôt local pointe encore sur `github.com/exhorte/Feanor.git`
-  et le déplacement de `04_code/feanor-web` vers `04_code` n'est pas commité.
-  Le nouveau dépôt `github.com/exhorte/oralec.git` reste à brancher.
+
+---
+
+## Dépôt Git
+
+Refonte commitée (`8ba1d53`) et poussée sur `main` de
+`github.com/exhorte/oralec.git`, dépôt **public**. `origin` pointe désormais
+sur cette adresse (`Feanor.git` y redirigeait déjà : le dépôt a été renommé).
+
+**Volontairement absents du dépôt**, car aucune licence ne le permet : les
+aperçus Depositphotos et iStock, les images `images (n).jpg` récupérées sur
+Google et `imgres.htm`, tous dans `05_screenshot`. Ils restent sur le poste du
+dirigeant. Deux de ces images (toiture, froid commercial) sont en revanche dans
+`04_code/public/images/`, car le site en dépend : leurs droits restent à
+confirmer (point 5 ci-dessus).

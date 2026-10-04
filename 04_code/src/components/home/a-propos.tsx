@@ -43,7 +43,7 @@ export function APropos() {
 
         <div className="lg:col-span-6">
           <div className="relative">
-            <div className="absolute -top-4 -left-4 h-3/5 w-3/5 rounded-3xl bg-marine-clair" aria-hidden />
+            <div className="absolute -top-4 -left-4 h-3/5 w-3/5 rounded-3xl bg-bleu-clair" aria-hidden />
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-float lg:aspect-[5/4]">
               <Photo name={aPropos.photo} sizes="(min-width: 1024px) 46vw, 94vw" />
             </div>

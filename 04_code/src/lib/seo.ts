@@ -1,6 +1,17 @@
 import type { Metadata } from "next";
 import { site } from "@/content/site";
 
+/** Image de partage (aperçu WhatsApp, Facebook, LinkedIn) : le fichier
+ *  `src/app/opengraph-image.png`. Rappelée ici parce que l'objet `openGraph`
+ *  d'une page remplace celui du layout : sans elle, l'aperçu disparaîtrait
+ *  de toutes les pages sauf l'accueil. */
+const imagePartage = {
+  url: "/opengraph-image.png",
+  width: 1200,
+  height: 630,
+  alt: `${site.name} — ${site.descriptor} à Dakar`,
+};
+
 /** Fabrique de métadonnées — titres uniques, descriptions rédigées à la main. */
 export function buildMetadata({
   title,
@@ -27,11 +38,13 @@ export function buildMetadata({
       siteName: site.name,
       locale: "fr_SN",
       type: "website",
+      images: [imagePartage],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [imagePartage],
     },
   };
 }
@@ -49,6 +62,9 @@ export function localBusinessJsonLd() {
     legalName: site.legalName,
     description: site.description,
     url: site.url,
+    // PNG plutôt que SVG : c'est le format que Google lit à coup sûr
+    logo: `${site.url}/brand/oralec-logo-1024.png`,
+    image: `${site.url}/opengraph-image.png`,
     telephone: site.phone,
     email: site.email,
     address: {

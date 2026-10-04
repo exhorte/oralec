@@ -14,19 +14,17 @@ import { telUrl, whatsappUrl } from "@/lib/whatsapp";
  * électricité.jpg).
  *
  * Repris : texte à gauche avec mot-clé coloré, photo de technicien en
- * pleine hauteur à droite fondue dans le blanc, et bandeau d'atouts marine
+ * pleine hauteur à droite fondue dans le blanc, et bandeau d'atouts bleu
  * qui chevauche le bas de la photo.
  *
  * Adapté : la photo est retournée pour que le technicien regarde vers le
  * texte ; l'action secondaire est WhatsApp plutôt qu'un lien vers les
  * services — à Dakar, la conversation commence là. Le fond reprend la
- * douceur d'arktyk.fr : un dégradé clair et une trame à peine visible.
+ * douceur d'arktyk.fr : un fond blanc, sans trame.
  */
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-white pb-14 lg:pb-16">
-      <div className="pattern-dots fade-mask absolute inset-0 opacity-60" aria-hidden />
-
       <div className="relative">
         <Container className="relative">
           <div className="grid items-center lg:min-h-[600px] lg:grid-cols-12">
@@ -80,7 +78,7 @@ export function Hero() {
               <span className="flex size-8 items-center justify-center rounded-full bg-primary text-white ring-2 ring-white">
                 <LightningIcon weight="fill" className="size-4" aria-hidden />
               </span>
-              <span className="flex size-8 items-center justify-center rounded-full bg-marine-clair text-primary ring-2 ring-white">
+              <span className="flex size-8 items-center justify-center rounded-full bg-bleu-clair text-primary ring-2 ring-white">
                 <SnowflakeIcon weight="bold" className="size-4" aria-hidden />
               </span>
             </span>

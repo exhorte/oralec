@@ -15,19 +15,17 @@ import { zonesLocales } from "@/content/zones";
 import { realisationsVisibles } from "@/content/realisations";
 import { telUrl, whatsappUrl } from "@/lib/whatsapp";
 
-const lienClasse = "text-white/65 transition-colors hover:text-white";
+const lienClasse = "text-white/75 transition-colors hover:text-white";
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-marine-profond text-white">
-      <div className="pattern-grid-light fade-mask absolute inset-0 opacity-70" aria-hidden />
-
-      <Container className="relative">
+    <footer className="bg-primary text-primary-foreground">
+      <Container>
         <div className="grid gap-12 py-16 md:grid-cols-12 md:gap-8 lg:py-20">
           {/* Marque et coordonnées */}
           <div className="md:col-span-4">
             <Logo tone="blanc" withDescriptor />
-            <p className="mt-5 max-w-xs text-sm text-white/65">
+            <p className="mt-5 max-w-xs text-sm text-white/75">
               {site.tagline} Installation, maintenance et dépannage en électricité et en
               climatisation, à Dakar et dans tout le Sénégal.
             </p>
@@ -56,7 +54,7 @@ export function Footer() {
                   {site.email}
                 </a>
               </li>
-              <li className="flex items-start gap-3 text-white/65">
+              <li className="flex items-start gap-3 text-white/75">
                 <MapPinIcon weight="duotone" className="mt-0.5 size-[1.1rem] shrink-0 text-white/60" aria-hidden />
                 <span>
                   {site.address.street}, {site.address.city}, {site.address.countryName}
@@ -133,7 +131,7 @@ export function Footer() {
                 <li key={z.slug}>
                   <Link
                     href={`/${z.slug}`}
-                    className="inline-flex rounded-full border border-white/12 px-3 py-1 text-white/70 transition-colors hover:border-white/30 hover:text-white"
+                    className="inline-flex rounded-full border border-white/20 px-3 py-1 text-white/75 transition-colors hover:border-white/40 hover:text-white"
                   >
                     {z.service} · {z.ville}
                   </Link>
@@ -141,9 +139,9 @@ export function Footer() {
               ))}
             </ul>
 
-            <div className="mt-8 flex items-start gap-3 rounded-xl bg-white/5 p-4 text-sm ring-1 ring-inset ring-white/10">
+            <div className="mt-8 flex items-start gap-3 rounded-xl bg-white/[0.07] p-4 text-sm ring-1 ring-inset ring-white/15">
               <ClockIcon weight="duotone" className="mt-0.5 size-5 shrink-0 text-white/60" aria-hidden />
-              <div className="text-white/70">
+              <div className="text-white/75">
                 <p>{site.hours.semaine}</p>
                 <p>{site.hours.samedi}</p>
                 <p className="mt-1 font-semibold text-white">{site.hours.urgence}</p>
@@ -155,7 +153,7 @@ export function Footer() {
         {/* Bloc de légitimité — élément de conversion, pas mention légale.
             Un prestataire technique qui affiche son NINEA et son RC lève
             la première objection du marché. */}
-        <div className="flex flex-col gap-4 border-t border-white/10 py-7 text-xs text-white/55 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-4 border-t border-white/15 py-7 text-xs text-white/70 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-wrap gap-x-5 gap-y-1">
             <span>
               © {new Date().getFullYear()} {site.legalName}

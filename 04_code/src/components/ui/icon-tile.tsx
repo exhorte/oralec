@@ -9,15 +9,15 @@ const tailles = {
 };
 
 const tons = {
-  /* Sur fond blanc : léger dégradé marine, liseré intérieur et ombre portée
+  /* Sur fond blanc : léger dégradé bleu, liseré intérieur et ombre portée
      teintée — la tuile prend du relief, comme un bouton physique. */
   clair:
-    "bg-linear-to-br from-white to-marine-clair text-primary ring-1 ring-inset ring-primary/10 shadow-[inset_0_1px_0_rgb(255_255_255),0_10px_18px_-10px_rgb(0_25_105/0.35)]",
-  /* Sur bandeau marine */
+    "bg-linear-to-br from-white to-bleu-clair text-primary ring-1 ring-inset ring-primary/10 shadow-[inset_0_1px_0_rgb(255_255_255),0_10px_18px_-10px_rgb(22_35_193/0.35)]",
+  /* Sur bandeau bleu */
   sombre: "bg-white/10 text-white ring-1 ring-inset ring-white/15",
-  /* Aplat marine, pour les points d'entrée forts */
+  /* Aplat bleu, pour les points d'entrée forts */
   plein:
-    "bg-primary text-primary-foreground shadow-[0_10px_20px_-10px_rgb(0_25_105/0.6)]",
+    "bg-primary text-primary-foreground shadow-[0_10px_20px_-10px_rgb(22_35_193/0.6)]",
 };
 
 /** Icône posée dans une tuile — l'unité visuelle des cartes du site. */

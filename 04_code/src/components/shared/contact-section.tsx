@@ -11,7 +11,7 @@ import { Horaires } from "./horaires";
 
 /**
  * Section contact — reprend le dernier bloc de la maquette : coordonnées à
- * gauche, carte marine « Envoyez-nous un message » à droite.
+ * gauche, carte bleue « Envoyez-nous un message » à droite.
  */
 export function ContactSection({ tone = "blanc" }: { tone?: "blanc" | "doux" }) {
   const canaux: { icon: IconName; label: string; valeur: string; href?: string; externe?: boolean }[] = [
@@ -74,7 +74,6 @@ export function ContactSection({ tone = "blanc" }: { tone?: "blanc" | "doux" }) 
 
         <div className="lg:col-span-7">
           <Card className="relative gap-0 overflow-hidden bg-primary py-0 text-primary-foreground shadow-band ring-0">
-            <div className="pattern-grid-light fade-mask absolute inset-0 opacity-60" aria-hidden />
             <CardHeader className="relative px-6 pt-8 sm:px-10 sm:pt-10">
               <CardTitle className="text-2xl font-bold sm:text-[1.7rem]">
                 Envoyez-nous un message

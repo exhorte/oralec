@@ -4,7 +4,7 @@ import { cn } from "cn"
 import { Slot } from "radix-ui"
 
 /* Bouton shadcn/ui (style « vega »), étendu pour Oralec :
-   — variantes `inverse` et `outline-inverse` pour les bandeaux marine ;
+   — variantes `inverse` et `outline-inverse` pour les bandeaux bleus ;
    — tailles `lg` et `xl` agrandies : la cible clique au pouce, sur mobile. */
 const buttonVariants = cva(
   "group/button inline-flex shrink-0 items-center justify-center rounded-md border border-transparent bg-clip-padding text-sm font-semibold whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
@@ -12,7 +12,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow-[0_10px_24px_-12px_rgb(0_25_105/0.7)] hover:bg-primary/90",
+          "bg-primary text-primary-foreground shadow-[0_10px_24px_-12px_rgb(22_35_193/0.7)] hover:bg-primary/90",
         outline:
           "border-border bg-background text-foreground shadow-xs hover:border-primary/30 hover:bg-secondary hover:text-primary aria-expanded:bg-muted",
         secondary:
